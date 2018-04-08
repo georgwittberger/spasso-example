@@ -1,0 +1,52 @@
+= Single Page Application Single Sign On Example
+Georg Wittberger <georg.wittberger@gmail.com>
+v1.0.0, 2018-04-08
+
+This repository provides an example project to demonstrate a browser-based OpenID Connect authentication process involving a single page application, an external identity provider and a secured resource server. The single page application performs the authorization code flow directly in the browser and retrieves the token from the identity provider. Then it uses the access token to make an authorized request to the API of the resource server which verifies the token using the JWK set provided by the OpenID Connect server.
+
+== Used Technologies
+
+In this example project we use the following technologies:
+
+* https://projects.spring.io/spring-boot/[Spring Boot]  + https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html[Spring MVC] + https://projects.spring.io/spring-security/[Spring Security]  for the resource server
+* https://vuejs.org/[Vue.js] + https://github.com/vuejs/vue-cli[Vue-CLI] for the single page application
+* https://www.keycloak.org/[Keycloak] as identity provider and OpenID Connect server
+
+== Prerequisites
+
+* Java Development Kit 10 (with environment variable `JAVA_HOME` set to installation directory)
+* Node.js 8.9.4 (or higher), NPM 5.6.0 (or higher)
+* Keycloak 4.0.0
+* Free local ports: 4200, 8080, 8081
+
+== Getting Started
+
+=== Keycloak Setup
+
+. Start Keycloak on local port `8080` and open the administration console
+. Add a new realm and select the import file `spasso-realm.json` from this repository
+. Create a new user within the realm for testing
+
+=== Running the Resource Server
+
+. Open a terminal in project directory `spasso-resource-server`
+. Run the command: `mvnw spring-boot:run`
+
+=== Running the Single Page Application
+
+. Open a terminal in project directory `spasso-browser-app`
+. Run the command: `npm install`
+. Run the command: `npm start`
+
+=== Try the Example
+
+. Open the single page application in the browser: http://localhost:4200
+. Note that there is no personal message since you are not authenticated.
+. Click the login button. You are redirected to the Keycloak server for login.
+. Authenticate with the user created in the realm.
+. You are redirected back to the single page application.
+. Note that you get a personal message (fetched from the resource server) with your username now.
+
+== License
+
+https://opensource.org/licenses/MIT[MIT]
