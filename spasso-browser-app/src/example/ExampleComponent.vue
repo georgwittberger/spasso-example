@@ -20,6 +20,7 @@ export default {
     this.updatePersonalMessage();
     // Register event handler to be notified when authentication changes (login/logout).
     AuthenticationService.addAuthenticationListener(authentication => {
+      // eslint-disable-next-line
       console.info('ExampleComponent got new authentication: ', authentication);
       // Load personal message again when authentication has changed.
       this.updatePersonalMessage();

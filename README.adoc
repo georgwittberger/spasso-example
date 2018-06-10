@@ -1,6 +1,6 @@
 = Single Page Application Single Sign On Example
 Georg Wittberger <georg.wittberger@gmail.com>
-v1.0.0, 2018-04-08
+v1.0.1, 2018-06-10
 
 This repository provides an example project to demonstrate a browser-based OpenID Connect authentication process involving a single page application, an external identity provider and a secured resource server. The single page application performs the authorization code flow directly in the browser and retrieves the token from the identity provider. Then it uses the access token to make an authorized request to the API of the resource server which verifies the token using the JWK set provided by the OpenID Connect server.
 
@@ -9,13 +9,13 @@ This repository provides an example project to demonstrate a browser-based OpenI
 In this example project we use the following technologies:
 
 * https://projects.spring.io/spring-boot/[Spring Boot]  + https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html[Spring MVC] + https://projects.spring.io/spring-security/[Spring Security]  for the resource server
-* https://vuejs.org/[Vue.js] + https://github.com/vuejs/vue-cli[Vue-CLI] for the single page application
+* https://vuejs.org/[Vue.js] + https://cli.vuejs.org/[Vue CLI] for the single page application
 * https://www.keycloak.org/[Keycloak] as identity provider and OpenID Connect server
 
 == Prerequisites
 
 * Java Development Kit 10 (with environment variable `JAVA_HOME` set to installation directory)
-* Node.js 8.9.4 (or higher), NPM 5.6.0 (or higher)
+* Node.js 8.10.x (or higher), NPM 5.6.0 (or higher)
 * Keycloak 4.0.0
 * Free local ports: 4200, 8080, 8081
 
